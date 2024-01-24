@@ -8,23 +8,22 @@ namespace _Assets.Scripts.Ecs
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(MovementSystem))]
-    public class MovementSystem : UpdateSystem
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(InputSystem))]
+    public class InputSystem : UpdateSystem
     {
-        private Filter _movementWithInputFilter;
-
+        private Filter _inputFilter;
         public override void OnAwake()
         {
-            _movementWithInputFilter = World.Filter.With<MovementComponent>().With<InputComponent>().Build();
+            _inputFilter = World.Filter.With<InputComponent>().Build();
         }
 
         public override void OnUpdate(float deltaTime)
         {
-            foreach (var entity in _movementWithInputFilter)
+            foreach (var entity in _inputFilter)
             {
                 ref var inputComponent = ref entity.GetComponent<InputComponent>();
-                ref var movementComponent = ref entity.GetComponent<MovementComponent>();
-                movementComponent.transform.Translate(inputComponent.direction * movementComponent.speed * deltaTime);
+                inputComponent.direction = Input.GetAxis("Horizontal") * Vector3.right + Input.GetAxis("Vertical") * Vector3.forward;
+                Debug.Log(inputComponent.direction);
             }
         }
     }

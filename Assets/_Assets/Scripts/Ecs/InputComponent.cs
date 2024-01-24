@@ -8,9 +8,8 @@ namespace _Assets.Scripts.Ecs
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
     [System.Serializable]
-    public struct MovementComponent : IComponent
+    public struct InputComponent : IComponent
     {
-        public float speed;
-        public Transform transform;
+        public Vector3 direction;
     }
 }
