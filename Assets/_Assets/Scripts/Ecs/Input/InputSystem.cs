@@ -3,7 +3,7 @@ using Scellecs.Morpeh.Systems;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
 
-namespace _Assets.Scripts.Ecs
+namespace _Assets.Scripts.Ecs.Input
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
@@ -22,7 +22,7 @@ namespace _Assets.Scripts.Ecs
             foreach (var entity in _inputFilter)
             {
                 ref var inputComponent = ref entity.GetComponent<InputComponent>();
-                inputComponent.direction = Input.GetAxis("Horizontal") * Vector3.right + Input.GetAxis("Vertical") * Vector3.forward;
+                inputComponent.direction = UnityEngine.Input.GetAxis("Horizontal") * Vector3.right + UnityEngine.Input.GetAxis("Vertical") * Vector3.forward;
                 Debug.Log(inputComponent.direction);
             }
         }

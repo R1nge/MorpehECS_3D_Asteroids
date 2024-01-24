@@ -134,8 +134,8 @@ GameObject:
   - component: {fileID: 450736271}
   - component: {fileID: 450736274}
   - component: {fileID: 450736273}
-  - component: {fileID: 450736270}
   - component: {fileID: 450736272}
+  - component: {fileID: 450736270}
   m_Layer: 0
   m_Name: ECS_Object
   m_TagString: Untagged
