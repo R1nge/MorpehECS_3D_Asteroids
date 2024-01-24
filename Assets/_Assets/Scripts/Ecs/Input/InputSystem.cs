@@ -12,6 +12,7 @@ namespace _Assets.Scripts.Ecs.Input
     public class InputSystem : UpdateSystem
     {
         private Filter _inputFilter;
+
         public override void OnAwake()
         {
             _inputFilter = World.Filter.With<InputComponent>().Build();
@@ -22,8 +23,8 @@ namespace _Assets.Scripts.Ecs.Input
             foreach (var entity in _inputFilter)
             {
                 ref var inputComponent = ref entity.GetComponent<InputComponent>();
-                inputComponent.direction = UnityEngine.Input.GetAxis("Horizontal") * Vector3.right + UnityEngine.Input.GetAxis("Vertical") * Vector3.forward;
-                Debug.Log(inputComponent.direction);
+                inputComponent.direction = UnityEngine.Input.GetAxis("Horizontal") * Vector3.right +
+                                           UnityEngine.Input.GetAxis("Vertical") * Vector3.forward;
             }
         }
     }
