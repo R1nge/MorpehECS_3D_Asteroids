@@ -1,7 +1,9 @@
 ﻿namespace _Assets.Scripts.Services.StateMachine
 {
-    public enum GameStateType
+    public enum GameStateType : byte
     {
-        Game
+        None = 0,
+        Game = 1,
+        GameOver = 2
     }
 }
