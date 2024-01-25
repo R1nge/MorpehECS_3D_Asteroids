@@ -2,7 +2,7 @@
 using _Assets.Scripts.Services.Factories;
 using UnityEngine;
 
-namespace _Assets.Scripts.Services
+namespace _Assets.Scripts.Services.Spawners
 {
     public class AsteroidsSpawner
     {
