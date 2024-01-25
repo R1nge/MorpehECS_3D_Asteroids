@@ -8,14 +8,14 @@ namespace _Assets.Scripts.Ecs.Input
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(InputSystem))]
-    public class InputSystem : UpdateSystem
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(PlayerInputSystem))]
+    public class PlayerInputSystem : UpdateSystem
     {
         private Filter _inputFilter;
 
         public override void OnAwake()
         {
-            _inputFilter = World.Filter.With<InputComponent>().Build();
+            _inputFilter = World.Filter.With<InputComponent>().With<PlayerComponent>().Build();
         }
 
         public override void OnUpdate(float deltaTime)
