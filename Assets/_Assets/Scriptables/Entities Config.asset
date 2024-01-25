@@ -16,4 +16,4 @@ MonoBehaviour:
   largeAsteroid: {fileID: 1147424805680860294, guid: d01538c0f5d0ef24fb2621b366a793c8, type: 3}
   mediumAsteroid: {fileID: 1147424805680860294, guid: d01538c0f5d0ef24fb2621b366a793c8, type: 3}
   smallAsteroid: {fileID: 1147424805680860294, guid: d01538c0f5d0ef24fb2621b366a793c8, type: 3}
-  bullet: {fileID: 0}
+  bullet: {fileID: 2696873542450662002, guid: 1b8be46240958264ea974c6ba2b670d6, type: 3}

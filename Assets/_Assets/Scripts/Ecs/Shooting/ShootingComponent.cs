@@ -1,6 +1,7 @@
 ﻿using _Assets.Scripts.Services.Factories;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
+using UnityEngine;
 
 namespace _Assets.Scripts.Ecs.Shooting
 {
@@ -11,5 +12,6 @@ namespace _Assets.Scripts.Ecs.Shooting
     public struct ShootingComponent : IComponent
     {
         public BulletFactory BulletFactory;
+        public Transform ShootingPoint;
     }
 }
