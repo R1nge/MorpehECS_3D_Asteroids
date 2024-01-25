@@ -8,11 +8,13 @@ namespace _Assets.Scripts.Services.StateMachine
     {
         private readonly UIStateMachine _uiStateMachine;
         private readonly PlayerFactory _playerFactory;
+        private readonly AsteroidsFactory _asteroidsFactory;
 
-        private GameStatesFactory(UIStateMachine uiStateMachine, PlayerFactory playerFactory)
+        private GameStatesFactory(UIStateMachine uiStateMachine, PlayerFactory playerFactory, AsteroidsFactory asteroidsFactory)
         {
             _uiStateMachine = uiStateMachine;
             _playerFactory = playerFactory;
+            _asteroidsFactory = asteroidsFactory;
         }
         
         public IGameState CreateInitState(GameStateMachine stateMachine)
@@ -22,7 +24,7 @@ namespace _Assets.Scripts.Services.StateMachine
 
         public IGameState CreateGameState(GameStateMachine stateMachine)
         {
-            return new GameState(stateMachine, _uiStateMachine, _playerFactory);
+            return new GameState(stateMachine, _uiStateMachine, _playerFactory, _asteroidsFactory);
         }
 
         public IGameState CreateGameOverState(GameStateMachine stateMachine)

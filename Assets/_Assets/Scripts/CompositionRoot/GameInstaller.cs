@@ -17,6 +17,7 @@ namespace _Assets.Scripts.CompositionRoot
             builder.Register<UIFactory>(Lifetime.Singleton);
 
             builder.Register<PlayerFactory>(Lifetime.Singleton);
+            builder.Register<AsteroidsFactory>(Lifetime.Singleton);
 
             builder.Register<GameStatesFactory>(Lifetime.Singleton);
             builder.Register<GameStateMachine>(Lifetime.Singleton);
