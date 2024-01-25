@@ -1,15 +1,16 @@
-﻿namespace _Assets.Scripts.Services.UIs.StateMachine.States
+﻿using UnityEngine;
+
+namespace _Assets.Scripts.Services.UIs.StateMachine.States
 {
     public class UIGameOverState : IUIState
     {
-        public void Enter()
-        {
-            throw new System.NotImplementedException();
-        }
+        private readonly UIFactory _uiFactory;
+        private GameObject _ui;
 
-        public void Exit()
-        {
-            throw new System.NotImplementedException();
-        }
+        public UIGameOverState(UIFactory uiFactory) => _uiFactory = uiFactory;
+
+        public void Enter() => _ui = _uiFactory.CreateGameOverUI().gameObject;
+
+        public void Exit() => Object.Destroy(_ui);
     }
 }

@@ -8,7 +8,9 @@ namespace _Assets.Scripts.Services.Configs
     {
         [SerializeField] private MainMenuUI mainMenuUI;
         [SerializeField] private InGameUI inGameUI;
+        [SerializeField] private GameOverUI gameOverUI;
         public MainMenuUI MainMenuUI => mainMenuUI;
         public InGameUI InGameUI => inGameUI;
+        public GameOverUI GameOverUI => gameOverUI;
     }
 }

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuUI: {fileID: 2870511993960746945, guid: 32c5cfb48ee4f3a43af24b3bdd10515f, type: 3}
   inGameUI: {fileID: 6753623334832910204, guid: b950b196edcbfbb41968fbfbad7737e2, type: 3}
+  gameOverUI: {fileID: 3680132885026832687, guid: 303c6147d52e0a24d8276ad53abe68c0, type: 3}

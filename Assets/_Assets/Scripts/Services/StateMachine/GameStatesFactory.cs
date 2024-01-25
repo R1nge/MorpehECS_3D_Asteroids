@@ -29,7 +29,7 @@ namespace _Assets.Scripts.Services.StateMachine
 
         public IGameState CreateGameOverState(GameStateMachine stateMachine)
         {
-            return new GameOverState(stateMachine);
+            return new GameOverState(stateMachine, _uiStateMachine);
         }
     }
 }

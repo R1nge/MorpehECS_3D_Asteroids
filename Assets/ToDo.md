@@ -2,8 +2,6 @@ Asteroids ECS thing
 
 UI States:
 //In game state
-//Game over state
 
-Game States:
-
+//Spawn asteroids at random positions
 //Player lives
