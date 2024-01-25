@@ -2,6 +2,7 @@
 using _Assets.Scripts.Ecs.Shooting;
 using _Assets.Scripts.Services;
 using _Assets.Scripts.Services.Factories;
+using _Assets.Scripts.Services.Spawners;
 using Scellecs.Morpeh;
 using UnityEngine;
 using VContainer;
@@ -12,13 +13,16 @@ namespace _Assets.Scripts.Ecs
     {
         [SerializeField] private PlayerShootingSystem playerShootingSystem;
         [SerializeField] private ScoreSystem scoreSystem;
+        [SerializeField] private OnDamageSpawnNewAsteroid onDamageSpawnNewAsteroid;
         [Inject] private BulletFactory _bulletFactory;
         [Inject] private ScoreService _scoreService;
+        [Inject] private AsteroidsSpawner _asteroidsSpawner;
 
         private void Start()
         {
             playerShootingSystem.Inject(_bulletFactory);
             scoreSystem.Inject(_scoreService);
+            onDamageSpawnNewAsteroid.Inject(_asteroidsSpawner);
         }
     }
 }

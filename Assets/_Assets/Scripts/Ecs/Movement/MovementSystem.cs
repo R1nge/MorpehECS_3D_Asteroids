@@ -16,11 +16,11 @@ namespace _Assets.Scripts.Ecs.Movement
 
         public override void OnAwake()
         {
-            _movementWithInputFilter = World.Filter.With<MovementComponent>().With<InputComponent>().Build();
         }
 
         public override void OnUpdate(float deltaTime)
         {
+            _movementWithInputFilter = World.Filter.With<MovementComponent>().With<InputComponent>().Build();
             foreach (var entity in _movementWithInputFilter)
             {
                 ref var inputComponent = ref entity.GetComponent<InputComponent>();

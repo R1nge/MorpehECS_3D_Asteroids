@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Entities Config
   m_EditorClassIdentifier: 
   player: {fileID: 2135702027529978757, guid: 908e1483d28cc8a4f8e75ad4854455b5, type: 3}
-  largeAsteroid: {fileID: 1147424805680860294, guid: d01538c0f5d0ef24fb2621b366a793c8, type: 3}
-  mediumAsteroid: {fileID: 1147424805680860294, guid: d01538c0f5d0ef24fb2621b366a793c8, type: 3}
-  smallAsteroid: {fileID: 1147424805680860294, guid: d01538c0f5d0ef24fb2621b366a793c8, type: 3}
+  largeAsteroid: {fileID: 28786952978790668, guid: 53d6326c489247841baef94ee6f3cbe1, type: 3}
+  mediumAsteroid: {fileID: 28786952978790668, guid: d378fc22ecb2fb146a72884bbb7ea8d2, type: 3}
+  smallAsteroid: {fileID: 28786952978790668, guid: 0c8eba2fc3f8e634ba9d02db683d76c7, type: 3}
   bullet: {fileID: 2696873542450662002, guid: 1b8be46240958264ea974c6ba2b670d6, type: 3}

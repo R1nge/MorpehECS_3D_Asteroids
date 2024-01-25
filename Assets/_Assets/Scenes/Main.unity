@@ -367,6 +367,8 @@ MonoBehaviour:
   - enabled: 1
     system: {fileID: 11400000, guid: c28e208259757cb46a664e7da2346c50, type: 2}
   - enabled: 1
+    system: {fileID: 11400000, guid: a5668735ec98d144d9c9163d64c52d6a, type: 2}
+  - enabled: 1
     system: {fileID: 11400000, guid: 4258dd80fa8eeb04eaec289521991374, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: ccaee15e32110764b9c04a7d60738fed, type: 2}
@@ -379,6 +381,7 @@ MonoBehaviour:
   cleanupSystems: []
   playerShootingSystem: {fileID: 11400000, guid: 15aa58d9e395f0f42b2c7d810701a0d5, type: 2}
   scoreSystem: {fileID: 11400000, guid: ccaee15e32110764b9c04a7d60738fed, type: 2}
+  onDamageSpawnNewAsteroid: {fileID: 11400000, guid: a5668735ec98d144d9c9163d64c52d6a, type: 2}
 --- !u!1 &1162377814
 GameObject:
   m_ObjectHideFlags: 0
