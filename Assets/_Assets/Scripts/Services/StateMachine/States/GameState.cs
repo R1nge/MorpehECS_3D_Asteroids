@@ -28,7 +28,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
         public void Exit()
         {
             Object.Destroy(_player);
-            //TODO: remove asteroids
+            _asteroidsSpawner.Destroy();
         }
     }
 }
