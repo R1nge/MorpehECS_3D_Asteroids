@@ -16,10 +16,8 @@ namespace _Assets.Scripts.Ecs.Health
 
         public override void OnAwake()
         {
-            _asteroid = World.Filter.With<AsteroidComponent>().With<HealthComponent>().Build();
             _health = World.Filter.With<HealthComponent>().Build();
             World.GetStash<HealthComponent>().AsDisposable();
-            World.GetStash<AsteroidComponent>().AsDisposable();
         }
 
         public override void OnUpdate(float deltaTime)
@@ -28,7 +26,7 @@ namespace _Assets.Scripts.Ecs.Health
             {
                 if (asteroid.GetComponent<HealthComponent>().health <= 0)
                 {
-                    asteroid.Dispose();
+                    //TODO: call an event or pass asteroids spawner in here
                 }
             }
             
