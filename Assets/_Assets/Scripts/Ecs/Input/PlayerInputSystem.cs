@@ -26,32 +26,24 @@ namespace _Assets.Scripts.Ecs.Input
             {
                 ref var inputComponent = ref playerInput.GetComponent<InputComponent>();
                 ref var movementComponent = ref playerInput.GetComponent<MovementComponent>();
+                
+                var direction = Vector3.zero;
 
                 if (UnityEngine.Input.GetKey(KeyCode.W))
                 {
-                    inputComponent.direction = movementComponent.rigidbody.transform.right;
-
-                    if (UnityEngine.Input.GetKey(KeyCode.A))
-                    {
-                        inputComponent.direction.z = 1;
-                    }
-                    else if (UnityEngine.Input.GetKey(KeyCode.D))
-                    {
-                        inputComponent.direction.z = -1;
-                    }
+                    direction = movementComponent.rigidbody.transform.right;
                 }
-                else if (UnityEngine.Input.GetKey(KeyCode.A))
+
+                if (UnityEngine.Input.GetKey(KeyCode.A))
                 {
-                    inputComponent.direction.z = 1;
+                    direction.z = 1;
                 }
                 else if (UnityEngine.Input.GetKey(KeyCode.D))
                 {
-                    inputComponent.direction.z = -1;
+                    direction.z = -1;
                 }
-                else
-                {
-                    inputComponent.direction = Vector3.zero;
-                }
+
+                inputComponent.direction = direction;
             }
         }
     }

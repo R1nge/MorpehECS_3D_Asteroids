@@ -12,7 +12,6 @@ No data saving
 
 //Basically, it's a 3d game, but with only axis (X,Y) available for the player movement
 
-//Rotation via keys, add force only forward
 //Player shooting
 //Player lives
 //Score
