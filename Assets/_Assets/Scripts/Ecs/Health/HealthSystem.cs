@@ -11,17 +11,28 @@ namespace _Assets.Scripts.Ecs.Health
     [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(HealthSystem))]
     public class HealthSystem : UpdateSystem
     {
-        private Filter _filter;
+        private Filter _asteroid;
+        private Filter _health;
 
         public override void OnAwake()
         {
-            _filter = World.Filter.With<HealthComponent>().Build();
+            _asteroid = World.Filter.With<AsteroidComponent>().With<HealthComponent>().Build();
+            _health = World.Filter.With<HealthComponent>().Build();
             World.GetStash<HealthComponent>().AsDisposable();
+            World.GetStash<AsteroidComponent>().AsDisposable();
         }
 
         public override void OnUpdate(float deltaTime)
         {
-            foreach (var entity in _filter)
+            foreach (var asteroid in _asteroid)
+            {
+                if (asteroid.GetComponent<HealthComponent>().health <= 0)
+                {
+                    asteroid.Dispose();
+                }
+            }
+            
+            foreach (var entity in _health)
             {
                 if (entity.GetComponent<HealthComponent>().health <= 0)
                 {
