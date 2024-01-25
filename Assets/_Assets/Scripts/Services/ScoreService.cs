@@ -1,5 +1,4 @@
 ﻿using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Assets.Scripts.Services
@@ -20,7 +19,6 @@ namespace _Assets.Scripts.Services
 
             _score += points;
             OnScoreChanged?.Invoke(_score);
-            Debug.Log($"Score: {_score}");
         }
     }
 }

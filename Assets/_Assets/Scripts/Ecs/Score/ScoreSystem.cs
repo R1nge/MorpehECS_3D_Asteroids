@@ -1,5 +1,4 @@
-﻿using _Assets.Scripts.Ecs.Events;
-using _Assets.Scripts.Ecs.Requests;
+﻿using _Assets.Scripts.Ecs.Requests;
 using _Assets.Scripts.Services;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
