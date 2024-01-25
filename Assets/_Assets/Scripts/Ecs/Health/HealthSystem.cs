@@ -16,6 +16,7 @@ namespace _Assets.Scripts.Ecs.Health
 
         public override void OnAwake()
         {
+            _asteroid = World.Filter.With<AsteroidComponent>().Build();
             _health = World.Filter.With<HealthComponent>().Build();
             World.GetStash<HealthComponent>().AsDisposable();
         }
