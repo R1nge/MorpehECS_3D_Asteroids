@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1646365785613515576}
   - component: {fileID: 4019915677592925429}
   - component: {fileID: 8087977921189025301}
+  - component: {fileID: 2162774160227789403}
   - component: {fileID: 3287396251339988036}
   m_Layer: 0
   m_Name: Player
@@ -142,7 +143,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    ShootingPoint: {fileID: 5179188119819627943}
+    shootingPoint: {fileID: 5179188119819627943}
+--- !u!114 &2162774160227789403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135702027529978757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3fa52a0e564ec8969feb0cf9bad552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    health: 1
 --- !u!114 &3287396251339988036
 MonoBehaviour:
   m_ObjectHideFlags: 0
