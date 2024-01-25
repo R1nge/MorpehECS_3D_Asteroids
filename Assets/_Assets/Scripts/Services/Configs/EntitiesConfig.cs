@@ -6,11 +6,13 @@ namespace _Assets.Scripts.Services.Configs
     public class EntitiesConfig : ScriptableObject
     {
         [SerializeField] private GameObject player;
-        [SerializeField] private GameObject bigAsteroid, mediumAsteroid, smallAsteroid;
+        [SerializeField] private GameObject largeAsteroid, mediumAsteroid, smallAsteroid;
+        [SerializeField] private GameObject bullet;
         
         public GameObject Player => player;
-        public GameObject BigAsteroid => bigAsteroid;
+        public GameObject LargeAsteroid => largeAsteroid;
         public GameObject MediumAsteroid => mediumAsteroid;
         public GameObject SmallAsteroid => smallAsteroid;
+        public GameObject Bullet => bullet;
     }
 }

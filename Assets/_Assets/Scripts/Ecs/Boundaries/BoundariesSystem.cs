@@ -18,23 +18,26 @@ namespace _Assets.Scripts.Ecs.Boundaries
 
         public override void OnUpdate(float deltaTime)
         {
+            const float limitX = 10.5f;
+            const float limitY = 5.8f;
+
             foreach (var entity in _movementWithInputFilter)
             {
                 ref var movementComponent = ref entity.GetComponent<MovementComponent>();
-                
+
                 var pos = movementComponent.rigidbody.position;
 
-                if (pos.x < -10.5f)
-                    pos.x = 10.5f;
+                if (pos.x < -limitX)
+                    pos.x = limitX;
 
-                if (pos.x > 10.5f)
-                    pos.x = -10.5f;
+                if (pos.x > limitX)
+                    pos.x = -limitX;
 
-                if (pos.y < -5.8f)
-                    pos.y = 5.8f;
+                if (pos.y < -limitY)
+                    pos.y = limitY;
 
-                if (pos.y > 5.8f)
-                    pos.y = -5.8f;
+                if (pos.y > limitY)
+                    pos.y = -limitY;
 
                 movementComponent.rigidbody.position = pos;
             }

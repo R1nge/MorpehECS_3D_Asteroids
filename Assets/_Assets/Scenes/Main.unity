@@ -345,6 +345,8 @@ MonoBehaviour:
     system: {fileID: 11400000, guid: b4336246afef7b84bbc50006ef5c689b, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: b1a9c04d751b0524dad163f310f38460, type: 2}
+  - enabled: 1
+    system: {fileID: 11400000, guid: 15aa58d9e395f0f42b2c7d810701a0d5, type: 2}
   fixedUpdateSystems:
   - enabled: 1
     system: {fileID: 11400000, guid: e9fcfbf4e74bfae45bb9983f6244ea28, type: 2}

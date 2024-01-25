@@ -20,6 +20,6 @@ namespace _Assets.Scripts.Services.Factories
 
         public GameObject CreateMediumAsteroid() => _objectResolver.Instantiate(_configProvider.EntitiesConfig.MediumAsteroid);
 
-        public GameObject CreateLargeAsteroid() => _objectResolver.Instantiate(_configProvider.EntitiesConfig.SmallAsteroid);
+        public GameObject CreateLargeAsteroid() => _objectResolver.Instantiate(_configProvider.EntitiesConfig.LargeAsteroid);
     }
 }
