@@ -41,7 +41,6 @@ namespace _Assets.Scripts.Ecs
                 {
                     if (entity.Has<AsteroidComponent>())
                     {
-                        Debug.Log($"{healthComponent.health}");
                         _addPointsRequest.Publish(new AddPointsRequest
                         {
                             points = entity.GetComponent<AsteroidComponent>().points

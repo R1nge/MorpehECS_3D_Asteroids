@@ -30,7 +30,6 @@ namespace _Assets.Scripts.Ecs
             if (World.TryGetEntity(target, out var entity))
             {
                 var healthComponent = entity.GetComponent<HealthComponent>();
-                Debug.Log($"{healthComponent.health}");
                 if (healthComponent.health <= 0)
                 {
                     Destroy(healthComponent.gameObject);
