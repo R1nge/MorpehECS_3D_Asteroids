@@ -1,16 +1,19 @@
-﻿namespace _Assets.Scripts.Services.StateMachine.States
+﻿using UnityEngine;
+
+namespace _Assets.Scripts.Services.StateMachine.States
 {
-    public class GameOverState : IGameState
+    public class InitState : IGameState
     {
         private readonly GameStateMachine _gameStateMachine;
 
-        public GameOverState(GameStateMachine gameStateMachine)
+        public InitState(GameStateMachine gameStateMachine)
         {
             _gameStateMachine = gameStateMachine;
         }
         
         public void Enter()
         {
+            Debug.Log("Enter InitState");
         }
 
         public void Exit()

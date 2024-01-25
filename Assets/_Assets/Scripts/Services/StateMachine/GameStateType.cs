@@ -3,7 +3,8 @@
     public enum GameStateType : byte
     {
         None = 0,
-        Game = 1,
-        GameOver = 2
+        Init = 1,
+        Game = 2,
+        GameOver = 3
     }
 }

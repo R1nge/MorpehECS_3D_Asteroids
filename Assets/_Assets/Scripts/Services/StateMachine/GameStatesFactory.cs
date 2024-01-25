@@ -4,9 +4,9 @@ namespace _Assets.Scripts.Services.StateMachine
 {
     public class GameStatesFactory
     {
-        public IGameState CreateNoneState(GameStateMachine stateMachine)
+        public IGameState CreateInitState(GameStateMachine stateMachine)
         {
-            return new NoneState();
+            return new InitState(stateMachine);
         }
 
         public IGameState CreateGameState(GameStateMachine stateMachine)
@@ -16,7 +16,7 @@ namespace _Assets.Scripts.Services.StateMachine
 
         public IGameState CreateGameOverState(GameStateMachine stateMachine)
         {
-            return new GameOverState();
+            return new GameOverState(stateMachine);
         }
     }
 }
