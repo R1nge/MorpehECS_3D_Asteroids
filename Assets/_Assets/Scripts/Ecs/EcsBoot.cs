@@ -1,4 +1,5 @@
-﻿using _Assets.Scripts.Ecs.Score;
+﻿using _Assets.Scripts.Ecs.Damage;
+using _Assets.Scripts.Ecs.Score;
 using _Assets.Scripts.Ecs.Shooting;
 using _Assets.Scripts.Services;
 using _Assets.Scripts.Services.Factories;
