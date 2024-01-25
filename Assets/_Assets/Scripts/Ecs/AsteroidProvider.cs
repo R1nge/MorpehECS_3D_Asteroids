@@ -1,10 +1,10 @@
 ﻿using _Assets.Scripts.Services.Factories;
-using UnityEngine;
+using Scellecs.Morpeh.Providers;
 using VContainer;
 
-namespace _Assets.Scripts
+namespace _Assets.Scripts.Ecs
 {
-    public class Asteroid : MonoBehaviour
+    public class AsteroidProvider : MonoProvider<AsteroidComponent>
     {
         [Inject] private AsteroidsFactory _asteroidsFactory;
         

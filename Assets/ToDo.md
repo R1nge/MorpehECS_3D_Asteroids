@@ -12,9 +12,9 @@ No data saving
 
 //Basically, it's a 3d game, but with only axis (X,Y) available for the player movement
 
-//Health system
-//Damage system?
-
-//Player lives
+//Add bullet force
 //Score
 //Boundaries (fix values)
+
+
+//Player lives
