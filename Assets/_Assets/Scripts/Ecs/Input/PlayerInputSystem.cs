@@ -24,7 +24,7 @@ namespace _Assets.Scripts.Ecs.Input
             {
                 ref var inputComponent = ref entity.GetComponent<InputComponent>();
                 inputComponent.direction = UnityEngine.Input.GetAxis("Horizontal") * Vector3.right +
-                                           UnityEngine.Input.GetAxis("Vertical") * Vector3.forward;
+                                           UnityEngine.Input.GetAxis("Vertical") * Vector3.up;
             }
         }
     }
