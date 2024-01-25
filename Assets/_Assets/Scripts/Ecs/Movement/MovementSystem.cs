@@ -25,7 +25,7 @@ namespace _Assets.Scripts.Ecs.Movement
             {
                 ref var inputComponent = ref entity.GetComponent<InputComponent>();
                 ref var movementComponent = ref entity.GetComponent<MovementComponent>();
-                movementComponent.transform.Translate(inputComponent.direction * movementComponent.speed * deltaTime);
+                movementComponent.rigidbody.AddForce(inputComponent.direction * movementComponent.speed * deltaTime, ForceMode.Force);
             }
         }
     }

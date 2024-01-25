@@ -22,7 +22,7 @@ namespace _Assets.Scripts.Ecs.Boundaries
             {
                 ref var movementComponent = ref entity.GetComponent<MovementComponent>();
                 
-                var pos = movementComponent.transform.position;
+                var pos = movementComponent.rigidbody.position;
 
                 if (pos.x < -10.5f)
                     pos.x = 10.5f;
@@ -36,7 +36,7 @@ namespace _Assets.Scripts.Ecs.Boundaries
                 if (pos.y > 5.8f)
                     pos.y = -5.8f;
 
-                movementComponent.transform.position = pos;
+                movementComponent.rigidbody.position = pos;
             }
         }
     }

@@ -11,6 +11,6 @@ namespace _Assets.Scripts.Ecs.Movement
     public struct MovementComponent : IComponent
     {
         public float speed;
-        public Transform transform;
+        public Rigidbody rigidbody;
     }
 }
