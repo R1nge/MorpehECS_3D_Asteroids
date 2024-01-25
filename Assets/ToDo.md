@@ -12,4 +12,4 @@ Game States:
 
 No data saving
 
-//Basically, it's a 3d game, but with only 2 of them available for the player movement
+//Basically, it's a 3d game, but with only axis (X,Y) available for the player movement
