@@ -8,13 +8,13 @@ namespace _Assets.Scripts.Ecs.Shooting
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(ShootingSystem))]
-    public class ShootingSystem : UpdateSystem
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(PlayerShootingSystem))]
+    public class PlayerShootingSystem : UpdateSystem
     {
         private Filter _filter;
         public override void OnAwake()
         {
-            _filter = World.Filter.With<ShootingComponent>().Build();
+            _filter = World.Filter.With<ShootingComponent>().With<PlayerComponent>().Build();
         }
 
         public override void OnUpdate(float deltaTime)

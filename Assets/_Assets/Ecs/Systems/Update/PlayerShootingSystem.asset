@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0341af32f1304590b3d389ac5c398c05, type: 3}
-  m_Name: ShootingSystem
+  m_Name: PlayerShootingSystem
   m_EditorClassIdentifier: 
