@@ -1,16 +1,17 @@
 ﻿using _Assets.Scripts.Ecs.Input;
+using _Assets.Scripts.Ecs.Movement;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
 
-namespace _Assets.Scripts.Ecs.Movement
+namespace _Assets.Scripts.Ecs.Rotation
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(MovementSystem))]
-    public class MovementSystem : FixedUpdateSystem
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(RotationSystem))]
+    public class RotationSystem : FixedUpdateSystem
     {
         private Filter _movementWithInputFilter;
 
@@ -25,7 +26,8 @@ namespace _Assets.Scripts.Ecs.Movement
             {
                 ref var inputComponent = ref entity.GetComponent<InputComponent>();
                 ref var movementComponent = ref entity.GetComponent<MovementComponent>();
-                movementComponent.rigidbody.AddForce(inputComponent.direction * movementComponent.speed * deltaTime, ForceMode.Force);
+                var deltaRotation = Quaternion.Euler(0, 0, inputComponent.direction.z * movementComponent.speed * deltaTime);
+                movementComponent.rigidbody.MoveRotation(movementComponent.rigidbody.rotation * deltaRotation);
             }
         }
     }

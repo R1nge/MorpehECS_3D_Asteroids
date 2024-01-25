@@ -12,7 +12,8 @@ No data saving
 
 //Basically, it's a 3d game, but with only axis (X,Y) available for the player movement
 
-//Physics movement (Rigidbody)
+//Rotation via keys, add force only forward
 //Player shooting
 //Player lives
-//Boundaries (if an object is out of bounds return in from the opposite side)
+//Score
+//Boundaries (fix values)

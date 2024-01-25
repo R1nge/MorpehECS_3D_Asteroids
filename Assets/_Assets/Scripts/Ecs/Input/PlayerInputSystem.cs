@@ -1,4 +1,5 @@
-﻿using Scellecs.Morpeh;
+﻿using _Assets.Scripts.Ecs.Movement;
+using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
@@ -15,16 +16,42 @@ namespace _Assets.Scripts.Ecs.Input
 
         public override void OnAwake()
         {
-            _inputFilter = World.Filter.With<InputComponent>().With<PlayerComponent>().Build();
+            _inputFilter = World.Filter.With<MovementComponent>().With<InputComponent>().With<PlayerComponent>()
+                .Build();
         }
 
         public override void OnUpdate(float deltaTime)
         {
-            foreach (var entity in _inputFilter)
+            foreach (var playerInput in _inputFilter)
             {
-                ref var inputComponent = ref entity.GetComponent<InputComponent>();
-                inputComponent.direction = UnityEngine.Input.GetAxis("Horizontal") * Vector3.right +
-                                           UnityEngine.Input.GetAxis("Vertical") * Vector3.up;
+                ref var inputComponent = ref playerInput.GetComponent<InputComponent>();
+                ref var movementComponent = ref playerInput.GetComponent<MovementComponent>();
+
+                if (UnityEngine.Input.GetKey(KeyCode.W))
+                {
+                    inputComponent.direction = movementComponent.rigidbody.transform.right;
+
+                    if (UnityEngine.Input.GetKey(KeyCode.A))
+                    {
+                        inputComponent.direction.z = 1;
+                    }
+                    else if (UnityEngine.Input.GetKey(KeyCode.D))
+                    {
+                        inputComponent.direction.z = -1;
+                    }
+                }
+                else if (UnityEngine.Input.GetKey(KeyCode.A))
+                {
+                    inputComponent.direction.z = 1;
+                }
+                else if (UnityEngine.Input.GetKey(KeyCode.D))
+                {
+                    inputComponent.direction.z = -1;
+                }
+                else
+                {
+                    inputComponent.direction = Vector3.zero;
+                }
             }
         }
     }
