@@ -38,14 +38,17 @@ namespace _Assets.Scripts.Services.Spawners
                 case AsteroidSize.Large:
                     var large = _asteroidsFactory.CreateLargeAsteroid();
                     large.transform.position = position;
+                    _asteroids.Add(large);
                     break;
                 case AsteroidSize.Medium:
                     var medium = _asteroidsFactory.CreateMediumAsteroid();
                     medium.transform.position = position;
+                    _asteroids.Add(medium);
                     break;
                 case AsteroidSize.Small:
                     var small = _asteroidsFactory.CreateSmallAsteroid();
                     small.transform.position = position;
+                    _asteroids.Add(small);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(size), size, null);

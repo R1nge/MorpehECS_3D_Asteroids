@@ -5,6 +5,5 @@ UI States:
 //Game over state
 
 Game States:
-//Game over
 
 //Player lives
