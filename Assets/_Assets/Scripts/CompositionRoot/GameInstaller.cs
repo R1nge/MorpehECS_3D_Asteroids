@@ -1,4 +1,5 @@
-﻿using _Assets.Scripts.Services.Factories;
+﻿using _Assets.Scripts.Services;
+using _Assets.Scripts.Services.Factories;
 using _Assets.Scripts.Services.StateMachine;
 using _Assets.Scripts.Services.UIs;
 using _Assets.Scripts.Services.UIs.StateMachine;
@@ -18,6 +19,7 @@ namespace _Assets.Scripts.CompositionRoot
 
             builder.Register<PlayerFactory>(Lifetime.Singleton);
             builder.Register<AsteroidsFactory>(Lifetime.Singleton);
+            builder.Register<AsteroidsSpawner>(Lifetime.Singleton);
 
             builder.Register<GameStatesFactory>(Lifetime.Singleton);
             builder.Register<GameStateMachine>(Lifetime.Singleton);

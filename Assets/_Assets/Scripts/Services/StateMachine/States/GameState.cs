@@ -5,29 +5,22 @@ namespace _Assets.Scripts.Services.StateMachine.States
 {
     public class GameState : IGameState
     {
-        private readonly GameStateMachine _stateMachine;
         private readonly UIStateMachine _uiStateMachine;
         private readonly PlayerFactory _playerFactory;
-        private readonly AsteroidsFactory _asteroidsFactory;
+        private readonly AsteroidsSpawner _asteroidsSpawner;
 
-        public GameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, PlayerFactory playerFactory, AsteroidsFactory asteroidsFactory)
+        public GameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, PlayerFactory playerFactory,AsteroidsSpawner asteroidsSpawner)
         {
-            _stateMachine = stateMachine;
             _uiStateMachine = uiStateMachine;
             _playerFactory = playerFactory;
-            _asteroidsFactory = asteroidsFactory;
+            _asteroidsSpawner = asteroidsSpawner;
         }
 
         public void Enter()
         {
             _uiStateMachine.SwitchState(UIStateType.InGame);
             _playerFactory.Create();
-            //TODO: make a spawner for them
-            _asteroidsFactory.CreateLargeAsteroid();
-            _asteroidsFactory.CreateMediumAsteroid();
-            _asteroidsFactory.CreateSmallAsteroid();
-            //Since asteroids are spawned via factory, I can just pass it into them,
-            //And call spawn method directly when one is destroyed
+            _asteroidsSpawner.Spawn();
         }
 
         public void Exit()
