@@ -1,33 +1,31 @@
-﻿using _Assets.Scripts.Services.Factories;
+﻿using _Assets.Scripts.Services.Spawners;
 using _Assets.Scripts.Services.UIs.StateMachine;
-using UnityEngine;
 
 namespace _Assets.Scripts.Services.StateMachine.States
 {
     public class GameState : IGameState
     {
         private readonly UIStateMachine _uiStateMachine;
-        private readonly PlayerFactory _playerFactory;
+        private readonly PlayerSpawner _playerSpawner;
         private readonly AsteroidsSpawner _asteroidsSpawner;
-        private GameObject _player;
 
-        public GameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, PlayerFactory playerFactory,AsteroidsSpawner asteroidsSpawner)
+        public GameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, PlayerSpawner playerSpawner,AsteroidsSpawner asteroidsSpawner)
         {
             _uiStateMachine = uiStateMachine;
-            _playerFactory = playerFactory;
+            _playerSpawner = playerSpawner;
             _asteroidsSpawner = asteroidsSpawner;
         }
 
         public void Enter()
         {
             _uiStateMachine.SwitchState(UIStateType.InGame);
-            _player = _playerFactory.Create();
+            _playerSpawner.Spawn();
             _asteroidsSpawner.Spawn();
         }
 
         public void Exit()
         {
-            Object.Destroy(_player);
+            _playerSpawner.Destroy();
             _asteroidsSpawner.Destroy();
         }
     }
