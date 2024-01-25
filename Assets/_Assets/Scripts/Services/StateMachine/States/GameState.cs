@@ -1,5 +1,6 @@
 ﻿using _Assets.Scripts.Services.Factories;
 using _Assets.Scripts.Services.UIs.StateMachine;
+using UnityEngine;
 
 namespace _Assets.Scripts.Services.StateMachine.States
 {
@@ -8,6 +9,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly UIStateMachine _uiStateMachine;
         private readonly PlayerFactory _playerFactory;
         private readonly AsteroidsSpawner _asteroidsSpawner;
+        private GameObject _player;
 
         public GameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, PlayerFactory playerFactory,AsteroidsSpawner asteroidsSpawner)
         {
@@ -19,14 +21,14 @@ namespace _Assets.Scripts.Services.StateMachine.States
         public void Enter()
         {
             _uiStateMachine.SwitchState(UIStateType.InGame);
-            _playerFactory.Create();
+            _player = _playerFactory.Create();
             _asteroidsSpawner.Spawn();
         }
 
         public void Exit()
         {
+            Object.Destroy(_player);
             //TODO: remove asteroids
-            //TODO: destroy the player
         }
     }
 }
