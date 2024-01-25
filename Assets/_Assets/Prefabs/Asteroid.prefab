@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     health: 1
+    gameObject: {fileID: 1147424805680860294}
 --- !u!114 &1910019551748509486
 MonoBehaviour:
   m_ObjectHideFlags: 0
