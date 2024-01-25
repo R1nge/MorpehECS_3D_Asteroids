@@ -13,6 +13,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
         
         public void Enter()
         {
+            //TODO: show main menu
             Debug.Log("Enter InitState");
         }
 
