@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "jp.hadashikick.vcontainer": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.14.0",
+    "com.codewriter.morpeh.events": "https://github.com/codewriter-packages/Morpeh.Events.git",
     "com.codewriter.triinspector": "https://github.com/codewriter-packages/Tri-Inspector.git",
     "com.scellecs.morpeh": "https://github.com/scellecs/morpeh.git#2023.1.0",
     "com.unity.collab-proxy": "2.2.0",
@@ -9,6 +9,7 @@
     "com.unity.timeline": "1.7.5",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.9.0",
+    "jp.hadashikick.vcontainer": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.14.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

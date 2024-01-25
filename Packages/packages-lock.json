@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.codewriter.morpeh.events": {
+      "version": "https://github.com/codewriter-packages/Morpeh.Events.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "8eecc3bf9440af87ef3c66bf7a1ff210ff361c03"
+    },
     "com.codewriter.triinspector": {
       "version": "https://github.com/codewriter-packages/Tri-Inspector.git",
       "depth": 0,
