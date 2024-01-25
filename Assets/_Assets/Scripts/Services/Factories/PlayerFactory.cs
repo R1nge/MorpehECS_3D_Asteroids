@@ -1,11 +1,21 @@
-﻿using UnityEngine;
+﻿using _Assets.Scripts.Services.Configs;
+using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 
 namespace _Assets.Scripts.Services.Factories
 {
-    public class PlayerFactory : MonoBehaviour
+    public class PlayerFactory
     {
-        [SerializeField] private GameObject playerPrefab;
+        private readonly IObjectResolver _objectResolver;
+        private readonly ConfigProvider _configProvider;
 
-        public GameObject Create() => Instantiate(playerPrefab);
+        private PlayerFactory(IObjectResolver objectResolver, ConfigProvider configProvider)
+        {
+            _objectResolver = objectResolver;
+            _configProvider = configProvider;
+        }
+
+        public GameObject Create() => _objectResolver.Instantiate(_configProvider.EntitiesConfig.Player);
     }
 }

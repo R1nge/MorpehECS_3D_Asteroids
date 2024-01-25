@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52939ab5c4644a4d8bff2d06bd361081, type: 3}
+  m_Name: Entities Config
+  m_EditorClassIdentifier: 
+  player: {fileID: 2135702027529978757, guid: 908e1483d28cc8a4f8e75ad4854455b5, type: 3}
+  bigAsteroid: {fileID: 0}
+  mediumAsteroid: {fileID: 0}
+  smallAsteroid: {fileID: 0}

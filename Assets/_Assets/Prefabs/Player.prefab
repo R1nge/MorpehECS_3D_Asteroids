@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7352375500784860497}
   - component: {fileID: 1646365785613515576}
   m_Layer: 0
-  m_Name: ECS_Object
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

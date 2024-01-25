@@ -1,4 +1,5 @@
-﻿using _Assets.Scripts.Services.StateMachine;
+﻿using _Assets.Scripts.Services.Factories;
+using _Assets.Scripts.Services.StateMachine;
 using _Assets.Scripts.Services.UIs;
 using _Assets.Scripts.Services.UIs.StateMachine;
 using VContainer;
@@ -14,7 +15,9 @@ namespace _Assets.Scripts.CompositionRoot
             builder.Register<UIStateMachine>(Lifetime.Singleton);
 
             builder.Register<UIFactory>(Lifetime.Singleton);
-            
+
+            builder.Register<PlayerFactory>(Lifetime.Singleton);
+
             builder.Register<GameStatesFactory>(Lifetime.Singleton);
             builder.Register<GameStateMachine>(Lifetime.Singleton);
         }
