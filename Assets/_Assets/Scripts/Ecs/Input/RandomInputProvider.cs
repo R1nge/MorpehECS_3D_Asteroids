@@ -6,9 +6,8 @@ namespace _Assets.Scripts.Ecs.Input
 {
     public class RandomInputProvider : MonoProvider<InputComponent>
     {
-        protected override void OnEnable()
+        protected override void Initialize()
         {
-            base.OnEnable();
             Entity.GetComponent<InputComponent>().direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         }
     }
