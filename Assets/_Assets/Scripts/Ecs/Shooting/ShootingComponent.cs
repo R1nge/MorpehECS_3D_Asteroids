@@ -13,5 +13,6 @@ namespace _Assets.Scripts.Ecs.Shooting
     {
         public BulletFactory BulletFactory;
         public Transform shootingPoint;
+        public float bulletSpeed;
     }
 }

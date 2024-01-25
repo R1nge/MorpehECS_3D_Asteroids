@@ -24,7 +24,8 @@ namespace _Assets.Scripts.Ecs.Shooting
                 if (UnityEngine.Input.GetMouseButtonDown(0))
                 {
                     var shootingComponent = entity.GetComponent<ShootingComponent>();
-                    shootingComponent.BulletFactory.Create(shootingComponent.shootingPoint.position);
+                    var bullet = shootingComponent.BulletFactory.Create(shootingComponent.shootingPoint.position);
+                    bullet.GetComponent<Rigidbody>().AddForce(shootingComponent.shootingPoint.right * shootingComponent.bulletSpeed);
                 }
             }
         }

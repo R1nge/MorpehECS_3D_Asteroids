@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     shootingPoint: {fileID: 5179188119819627943}
+    bulletSpeed: 500
 --- !u!114 &2162774160227789403
 MonoBehaviour:
   m_ObjectHideFlags: 0

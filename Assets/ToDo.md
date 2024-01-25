@@ -5,17 +5,8 @@ UI States:
 //Game over state
 
 Game States:
-//In game
 //Game over
 
-No data saving
-
-//Basically, it's a 3d game, but with only axis (X,Y) available for the player movement
-
 //Spawn smaller asteroids on previous destruction if not the smallest
-
-//Add bullet force
 //Score
-
-
 //Player lives
