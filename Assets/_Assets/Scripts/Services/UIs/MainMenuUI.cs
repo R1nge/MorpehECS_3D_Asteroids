@@ -19,5 +19,11 @@ namespace _Assets.Scripts.Services.UIs
         private void Play() => _gameStateMachine.SwitchState(GameStateType.Game);
 
         private void Quit() => Application.Quit();
+
+        private void OnDestroy()
+        {
+            playButton.onClick.RemoveAllListeners();
+            quitButton.onClick.RemoveAllListeners();
+        }
     }
 }

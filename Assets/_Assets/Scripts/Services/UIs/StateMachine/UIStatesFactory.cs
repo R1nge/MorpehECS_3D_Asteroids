@@ -18,7 +18,7 @@ namespace _Assets.Scripts.Services.UIs.StateMachine
         
         public IUIState CreateInGameState(UIStateMachine uiStateMachine)
         {
-            return new UIInGameState();
+            return new UIInGameState(_uiFactory);
         }
         
         public IUIState CreateGameOverState(UIStateMachine uiStateMachine)

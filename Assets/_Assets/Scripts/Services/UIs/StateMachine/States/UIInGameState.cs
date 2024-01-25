@@ -1,13 +1,16 @@
-﻿namespace _Assets.Scripts.Services.UIs.StateMachine.States
+﻿using UnityEngine;
+
+namespace _Assets.Scripts.Services.UIs.StateMachine.States
 {
     public class UIInGameState : IUIState
     {
-        public void Enter()
-        {
-        }
+        private readonly UIFactory _uiFactory;
+        private GameObject _ui;
 
-        public void Exit()
-        {
-        }
+        public UIInGameState(UIFactory uiFactory) => _uiFactory = uiFactory;
+
+        public void Enter() => _ui = _uiFactory.CreateInGameUI().gameObject;
+
+        public void Exit() => Object.Destroy(_ui);
     }
 }

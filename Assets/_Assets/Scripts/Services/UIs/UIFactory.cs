@@ -16,5 +16,7 @@ namespace _Assets.Scripts.Services.UIs
         }
         
         public MainMenuUI CreateMainMenuUI() => _objectResolver.Instantiate(_configProvider.UIConfig.MainMenuUI);
+        
+        public InGameUI CreateInGameUI() => _objectResolver.Instantiate(_configProvider.UIConfig.InGameUI);
     }
 }
