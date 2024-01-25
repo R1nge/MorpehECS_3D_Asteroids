@@ -2,7 +2,6 @@
 using _Assets.Scripts.Ecs.Health;
 using _Assets.Scripts.Ecs.Requests;
 using Scellecs.Morpeh;
-using Scellecs.Morpeh.Collections;
 using Scellecs.Morpeh.Systems;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
@@ -15,37 +14,35 @@ namespace _Assets.Scripts.Ecs.Damage
     [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(DamageSystem))]
     public class DamageSystem : UpdateSystem
     {
-        private Request<DamageRequest> damageRequest;
-        private Event<DamagedEvent> damagedEvent;
+        private Request<DamageRequest> _damageRequest;
+        private Event<DamagedEvent> _damagedEvent;
 
         public override void OnAwake()
         {
-            damageRequest = World.GetRequest<DamageRequest>();
-            damagedEvent = World.GetEvent<DamagedEvent>();
-            damagedEvent.Subscribe(ApplyDamage);
+            _damageRequest = World.GetRequest<DamageRequest>();
+            _damagedEvent = World.GetEvent<DamagedEvent>();
         }
 
         public override void OnUpdate(float deltaTime)
         {
             //Consumes a request sent by some one else
-            foreach (var request in damageRequest.Consume())
+            foreach (var request in _damageRequest.Consume())
             {
+                ApplyDamage(request.targetEntityId, request.damage);
+                
                 //Sends an event
-                damagedEvent.NextFrame(new DamagedEvent
+                _damagedEvent.NextFrame(new DamagedEvent
                 {
                     targetEntityId = request.targetEntityId
                 });
             }
         }
 
-        private void ApplyDamage(FastList<DamagedEvent> damageEvents)
+        private void ApplyDamage(EntityId entityId, int damage)
         {
-            foreach (var damageEvent in damageEvents)
+            if (World.TryGetEntity(entityId, out var entity))
             {
-                if (World.TryGetEntity(in damageEvent.targetEntityId, out var entity))
-                {
-                    entity.GetComponent<HealthComponent>().health -= damageEvent.damage;
-                }
+                entity.GetComponent<HealthComponent>().health -= damage;
             }
         }
     }
