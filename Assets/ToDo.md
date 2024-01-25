@@ -7,8 +7,6 @@ UI States:
 Game States:
 //Game over
 
-//A system that 
-
-//Spawn smaller asteroids on previous destruction if not the smallest
 //Score
+//Spawn smaller asteroids on previous destruction if not the smallest
 //Player lives

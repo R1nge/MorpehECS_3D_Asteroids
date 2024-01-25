@@ -1,4 +1,5 @@
-﻿using _Assets.Scripts.Services.Factories;
+﻿using _Assets.Scripts.Ecs.Player;
+using _Assets.Scripts.Services.Factories;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Unity.IL2CPP.CompilerServices;
