@@ -18,8 +18,8 @@ namespace _Assets.Scripts.Ecs.Boundaries
 
         public override void OnUpdate(float deltaTime)
         {
-            const float limitX = 10.5f;
-            const float limitY = 5.8f;
+            const float limitX = 11f;
+            const float limitY = 6.5f;
 
             foreach (var entity in _movementWithInputFilter)
             {

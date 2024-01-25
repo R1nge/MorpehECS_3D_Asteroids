@@ -8,9 +8,10 @@ namespace _Assets.Scripts.Ecs
     public struct AsteroidComponent : IComponent, IDisposable
     {
         public AsteroidsFactory AsteroidsFactory;
-        
+
         public void Dispose()
         {
+            //TODO: use asteroids spawner
             var number = Random.Range(0, 3);
             switch (number)
             {
