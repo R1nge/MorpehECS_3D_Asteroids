@@ -5,7 +5,6 @@ UI States:
 //Game over state
 
 Game States:
-//None
 //In game
 //Game over
 
