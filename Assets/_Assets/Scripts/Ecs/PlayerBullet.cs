@@ -12,7 +12,7 @@ namespace _Assets.Scripts.Ecs
         [SerializeField] private int damage;
         private Request<DamageRequest> _damageRequest;
 
-        private void Awake()
+        protected override void Initialize()
         {
             Destroy(gameObject, 5f);
             _damageRequest = World.Default.GetRequest<DamageRequest>();

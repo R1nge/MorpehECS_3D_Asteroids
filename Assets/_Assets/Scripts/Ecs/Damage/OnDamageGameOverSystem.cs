@@ -18,31 +18,35 @@ namespace _Assets.Scripts.Ecs.Damage
         private GameStateMachine _gameStateMachine;
         private Event<DamagedEvent> _damagedEvent;
 
-        public void Inject(GameStateMachine gameStateMachine) => _gameStateMachine = gameStateMachine; 
-        
+        public void Inject(GameStateMachine gameStateMachine) => _gameStateMachine = gameStateMachine;
+
         public override void OnAwake() => _damagedEvent = World.GetEvent<DamagedEvent>();
 
         public override void OnUpdate(float deltaTime)
         {
-            foreach (var evt in _damagedEvent.publishedChanges) {
+            foreach (var evt in _damagedEvent.publishedChanges)
+            {
                 GameOver(evt.TargetEntityId);
             }
         }
-        
+
         private void GameOver(EntityId target)
         {
             if (World.TryGetEntity(target, out var entity))
             {
                 if (!entity.IsNullOrDisposed())
                 {
-                    var healthComponent = entity.GetComponent<HealthComponent>();
-                    if (entity.Has<PlayerComponent>())
+                    if (entity.Has<HealthComponent>())
                     {
-                        if (healthComponent.health <= 0)
+                        var healthComponent = entity.GetComponent<HealthComponent>();
+                        if (entity.Has<PlayerComponent>())
                         {
-                            _gameStateMachine.SwitchState(GameStateType.GameOver);
-                        }   
-                    }   
+                            if (healthComponent.health <= 0)
+                            {
+                                _gameStateMachine.SwitchState(GameStateType.GameOver);
+                            }
+                        }
+                    }
                 }
             }
         }

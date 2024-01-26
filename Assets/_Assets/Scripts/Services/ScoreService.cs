@@ -20,5 +20,7 @@ namespace _Assets.Scripts.Services
             _score += points;
             OnScoreChanged?.Invoke(_score);
         }
+        
+        public void Reset() => _score = 0;
     }
 }

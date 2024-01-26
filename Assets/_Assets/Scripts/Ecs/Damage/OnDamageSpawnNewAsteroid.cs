@@ -34,26 +34,28 @@ namespace _Assets.Scripts.Ecs.Damage
         {
             if (World.TryGetEntity(target, out var entity))
             {
-                var healthComponent = entity.GetComponent<HealthComponent>();
-                if (healthComponent.health <= 0)
+                if (entity.Has<HealthComponent>())
                 {
-                    if (entity.Has<AsteroidComponent>())
+                    var healthComponent = entity.GetComponent<HealthComponent>();
+                    if (healthComponent.health <= 0)
                     {
-                        var asteroid = entity.GetComponent<AsteroidComponent>();
-                        //Check against overflow
-                        if ((byte)asteroid.asteroidSize > 1)
+                        if (entity.Has<AsteroidComponent>())
                         {
-                            if (asteroid.asteroidSize - 1 == 0)
+                            var asteroid = entity.GetComponent<AsteroidComponent>();
+                            Debug.Log($"Asteroid size: {asteroid.asteroidSize - 1}");
+                            
+                            //If 0, then 0 - 1 = 255 because of overflow
+                            if ((byte)asteroid.asteroidSize - 1 > 0 && (byte)asteroid.asteroidSize - 1 < 255)
                             {
-                                _asteroidsSpawner.SpawnRandomAsteroid();
+                                healthComponent.Dispose();
+                                _asteroidsSpawner.SpawnWithSize(asteroid.asteroidSize - 1, asteroid.transform.position);
                             }
                             else
                             {
-                                _asteroidsSpawner.SpawnWithSize(asteroid.asteroidSize - 1, asteroid.transform.position);
+                                healthComponent.Dispose();
+                                _asteroidsSpawner.SpawnRandomAsteroid();
                             }
                         }
-                        
-                        healthComponent.Dispose();
                     }
                 }
             }
