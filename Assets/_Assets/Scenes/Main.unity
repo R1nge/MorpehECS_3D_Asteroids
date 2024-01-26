@@ -371,8 +371,6 @@ MonoBehaviour:
   - enabled: 1
     system: {fileID: 11400000, guid: 7320b6980bf70534fb815ad415c1b4e5, type: 2}
   - enabled: 1
-    system: {fileID: 11400000, guid: 4258dd80fa8eeb04eaec289521991374, type: 2}
-  - enabled: 1
     system: {fileID: 11400000, guid: ccaee15e32110764b9c04a7d60738fed, type: 2}
   fixedUpdateSystems:
   - enabled: 1

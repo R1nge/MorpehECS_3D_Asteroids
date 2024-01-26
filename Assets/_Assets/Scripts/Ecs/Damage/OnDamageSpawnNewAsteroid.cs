@@ -52,6 +52,8 @@ namespace _Assets.Scripts.Ecs.Damage
                                 _asteroidsSpawner.SpawnWithSize(asteroid.asteroidSize - 1, asteroid.transform.position);
                             }
                         }
+                        
+                        healthComponent.Dispose();
                     }
                 }
             }
