@@ -12,6 +12,8 @@ namespace _Assets.Scripts.Services.Spawners
     {
         private readonly AsteroidsFactory _asteroidsFactory;
         private readonly List<GameObject> _asteroids = new();
+        //Caching to avoid allocations
+        private readonly int _enumLength = Enum.GetNames(typeof(AsteroidSize)).Length;
 
         private AsteroidsSpawner(AsteroidsFactory asteroidsFactory) => _asteroidsFactory = asteroidsFactory;
 
@@ -49,7 +51,7 @@ namespace _Assets.Scripts.Services.Spawners
 
         public void SpawnRandomAsteroid()
         {
-            var random = Random.Range(0, Enum.GetValues(typeof(AsteroidSize)).Length);
+            var random = Random.Range(0, _enumLength);
             var size = (AsteroidSize)random;
             var position = GetRandomPosition();
             SpawnWithSize(size, position);
