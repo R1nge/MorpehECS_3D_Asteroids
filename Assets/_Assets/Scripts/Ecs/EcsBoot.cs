@@ -17,14 +17,14 @@ namespace _Assets.Scripts.Ecs
         [SerializeField] private ScoreSystem scoreSystem;
         [SerializeField] private OnDamageSpawnNewAsteroid onDamageSpawnNewAsteroid;
         [SerializeField] private OnDamageGameOverSystem onDamageGameOverSystem;
-        [Inject] private BulletFactory _bulletFactory;
+        [Inject] private BulletSpawner _bulletSpawner;
         [Inject] private ScoreService _scoreService;
         [Inject] private AsteroidsSpawner _asteroidsSpawner;
         [Inject] private GameStateMachine _gameStateMachine;
 
         private void Start()
         {
-            playerShootingSystem.Inject(_bulletFactory);
+            playerShootingSystem.Inject(_bulletSpawner);
             scoreSystem.Inject(_scoreService);
             onDamageSpawnNewAsteroid.Inject(_asteroidsSpawner);
             onDamageGameOverSystem.Inject(_gameStateMachine);

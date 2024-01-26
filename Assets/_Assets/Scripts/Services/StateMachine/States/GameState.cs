@@ -8,12 +8,14 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly UIStateMachine _uiStateMachine;
         private readonly PlayerSpawner _playerSpawner;
         private readonly AsteroidsSpawner _asteroidsSpawner;
+        private readonly BulletSpawner _bulletSpawner;
 
-        public GameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, PlayerSpawner playerSpawner,AsteroidsSpawner asteroidsSpawner)
+        public GameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, PlayerSpawner playerSpawner,AsteroidsSpawner asteroidsSpawner, BulletSpawner bulletSpawner)
         {
             _uiStateMachine = uiStateMachine;
             _playerSpawner = playerSpawner;
             _asteroidsSpawner = asteroidsSpawner;
+            _bulletSpawner = bulletSpawner;
         }
 
         public void Enter()
@@ -27,6 +29,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
         {
             _playerSpawner.Destroy();
             _asteroidsSpawner.Destroy();
+            _bulletSpawner.Destroy();
         }
     }
 }

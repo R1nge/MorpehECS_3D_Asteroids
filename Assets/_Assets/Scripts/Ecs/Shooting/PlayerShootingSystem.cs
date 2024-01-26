@@ -1,10 +1,9 @@
 ﻿using _Assets.Scripts.Ecs.Player;
-using _Assets.Scripts.Services.Factories;
+using _Assets.Scripts.Services.Spawners;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
-using VContainer;
 
 namespace _Assets.Scripts.Ecs.Shooting
 {
@@ -14,10 +13,10 @@ namespace _Assets.Scripts.Ecs.Shooting
     [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(PlayerShootingSystem))]
     public class PlayerShootingSystem : UpdateSystem
     {
-        private BulletFactory _bulletFactory;
+        private BulletSpawner _bulletSpawner;
         private Filter _filter;
         
-        public void Inject(BulletFactory bulletFactory) => _bulletFactory = bulletFactory;
+        public void Inject(BulletSpawner bulletSpawner) => _bulletSpawner = bulletSpawner;
 
         public override void OnAwake()
         {
@@ -31,7 +30,7 @@ namespace _Assets.Scripts.Ecs.Shooting
                 if (UnityEngine.Input.GetMouseButtonDown(0))
                 {
                     var shootingComponent = entity.GetComponent<ShootingComponent>();
-                    var bullet = _bulletFactory.Create(shootingComponent.shootingPoint.position);
+                    var bullet = _bulletSpawner.Spawn(shootingComponent.shootingPoint.position);
                     bullet.GetComponent<Rigidbody>().AddForce(shootingComponent.shootingPoint.right * shootingComponent.bulletSpeed);
                 }
             }

@@ -33,12 +33,15 @@ namespace _Assets.Scripts.Ecs.Damage
         {
             if (World.TryGetEntity(target, out var entity))
             {
-                var healthComponent = entity.GetComponent<HealthComponent>();
-                if (entity.Has<PlayerComponent>())
+                if (!entity.IsNullOrDisposed())
                 {
-                    if (healthComponent.health <= 0)
+                    var healthComponent = entity.GetComponent<HealthComponent>();
+                    if (entity.Has<PlayerComponent>())
                     {
-                        _gameStateMachine.SwitchState(GameStateType.GameOver);
+                        if (healthComponent.health <= 0)
+                        {
+                            _gameStateMachine.SwitchState(GameStateType.GameOver);
+                        }   
                     }   
                 }
             }

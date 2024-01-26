@@ -43,7 +43,14 @@ namespace _Assets.Scripts.Ecs.Damage
                         //Check against overflow
                         if ((byte)asteroid.asteroidSize > 1)
                         {
-                            _asteroidsSpawner.SpawnWithSize(asteroid.asteroidSize - 1, asteroid.transform.position);    
+                            if (asteroid.asteroidSize - 1 == 0)
+                            {
+                                _asteroidsSpawner.SpawnRandomAsteroid();
+                            }
+                            else
+                            {
+                                _asteroidsSpawner.SpawnWithSize(asteroid.asteroidSize - 1, asteroid.transform.position);
+                            }
                         }
                     }
                 }

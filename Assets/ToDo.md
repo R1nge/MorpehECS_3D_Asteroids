@@ -3,6 +3,5 @@ Asteroids ECS thing
 UI States:
 //In game state
 
-//Spawn asteroids at random positions
-//TODO: respawn once the smallest is destroyed
+//Move mono components to a provider and get them from there?
 //Player lives

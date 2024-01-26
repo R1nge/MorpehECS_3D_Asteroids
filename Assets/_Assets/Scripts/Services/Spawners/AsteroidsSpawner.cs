@@ -4,6 +4,7 @@ using _Assets.Scripts.Ecs.Asteroid;
 using _Assets.Scripts.Services.Factories;
 using UnityEngine;
 using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 namespace _Assets.Scripts.Services.Spawners
 {
@@ -12,23 +13,14 @@ namespace _Assets.Scripts.Services.Spawners
         private readonly AsteroidsFactory _asteroidsFactory;
         private readonly List<GameObject> _asteroids = new();
 
-        private AsteroidsSpawner(AsteroidsFactory asteroidsFactory)
-        {
-            _asteroidsFactory = asteroidsFactory;
-        }
+        private AsteroidsSpawner(AsteroidsFactory asteroidsFactory) => _asteroidsFactory = asteroidsFactory;
 
         public void Spawn()
         {
-            //TODO: spawn in different position and different amount
-            //Since asteroids are spawned via factory, I can just pass it into them,
-            //And call spawn method directly when one is destroyed
-
-            var large = _asteroidsFactory.CreateLargeAsteroid();
-            var medium = _asteroidsFactory.CreateMediumAsteroid();
-            var small = _asteroidsFactory.CreateSmallAsteroid();
-            _asteroids.Add(large);
-            _asteroids.Add(medium);
-            _asteroids.Add(small);
+            for (int i = 0; i < 20; i++)
+            {
+                SpawnRandomAsteroid();
+            }
         }
         
         public void SpawnWithSize(AsteroidSize size, Vector3 position)
@@ -54,6 +46,16 @@ namespace _Assets.Scripts.Services.Spawners
                     throw new ArgumentOutOfRangeException(nameof(size), size, null);
             }
         }
+
+        public void SpawnRandomAsteroid()
+        {
+            var random = Random.Range(0, Enum.GetValues(typeof(AsteroidSize)).Length);
+            var size = (AsteroidSize)random;
+            var position = GetRandomPosition();
+            SpawnWithSize(size, position);
+        }
+
+        private Vector3 GetRandomPosition() => new(Random.Range(-100f, 100f), Random.Range(-100f, 100f));
 
         public void Destroy()
         {

@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     transform: {fileID: 2299498709119461866}
-    asteroidSize: 3
+    asteroidSize: 2
     points: 5
 --- !u!114 &6823568825835622518
 MonoBehaviour:

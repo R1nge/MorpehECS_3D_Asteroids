@@ -20,10 +20,12 @@ namespace _Assets.Scripts.CompositionRoot
 
             builder.Register<UIFactory>(Lifetime.Singleton);
 
+            builder.Register<BulletSpawner>(Lifetime.Singleton);
             builder.Register<BulletFactory>(Lifetime.Singleton);
 
             builder.Register<PlayerFactory>(Lifetime.Singleton);
             builder.Register<PlayerSpawner>(Lifetime.Singleton);
+            
             builder.Register<AsteroidsFactory>(Lifetime.Singleton);
             builder.Register<AsteroidsSpawner>(Lifetime.Singleton);
 
