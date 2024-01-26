@@ -20,14 +20,14 @@ namespace _Assets.Scripts.Ecs
         [Inject] private BulletSpawner _bulletSpawner;
         [Inject] private ScoreService _scoreService;
         [Inject] private AsteroidsSpawner _asteroidsSpawner;
-        [Inject] private GameStateMachine _gameStateMachine;
+        [Inject] private PlayerLivesService _playerLivesService;
 
         private void Start()
         {
             playerShootingSystem.Inject(_bulletSpawner);
             scoreSystem.Inject(_scoreService);
             onDamageSpawnNewAsteroid.Inject(_asteroidsSpawner);
-            onDamageGameOverSystem.Inject(_gameStateMachine);
+            onDamageGameOverSystem.Inject(_playerLivesService);
         }
     }
 }

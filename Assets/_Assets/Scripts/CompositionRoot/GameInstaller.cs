@@ -23,14 +23,18 @@ namespace _Assets.Scripts.CompositionRoot
             builder.Register<BulletSpawner>(Lifetime.Singleton);
             builder.Register<BulletFactory>(Lifetime.Singleton);
 
+            builder.Register<PlayerLivesService>(Lifetime.Singleton);
+
             builder.Register<PlayerFactory>(Lifetime.Singleton);
-            builder.Register<PlayerSpawner>(Lifetime.Singleton);
+            builder.Register<PlayerSpawner>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             
             builder.Register<AsteroidsFactory>(Lifetime.Singleton);
             builder.Register<AsteroidsSpawner>(Lifetime.Singleton);
 
             builder.Register<GameStatesFactory>(Lifetime.Singleton);
             builder.Register<GameStateMachine>(Lifetime.Singleton);
+
+            builder.Register<GameOverService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
         }
     }
 }

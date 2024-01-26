@@ -10,18 +10,21 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly AsteroidsSpawner _asteroidsSpawner;
         private readonly BulletSpawner _bulletSpawner;
         private readonly ScoreService _scoreService;
+        private readonly PlayerLivesService _playerLivesService;
 
-        public GameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, PlayerSpawner playerSpawner,AsteroidsSpawner asteroidsSpawner, BulletSpawner bulletSpawner, ScoreService scoreService)
+        public GameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, PlayerSpawner playerSpawner,AsteroidsSpawner asteroidsSpawner, BulletSpawner bulletSpawner, ScoreService scoreService, PlayerLivesService playerLivesService)
         {
             _uiStateMachine = uiStateMachine;
             _playerSpawner = playerSpawner;
             _asteroidsSpawner = asteroidsSpawner;
             _bulletSpawner = bulletSpawner;
             _scoreService = scoreService;
+            _playerLivesService = playerLivesService;
         }
 
         public void Enter()
         {
+            _playerLivesService.Reset();
             _uiStateMachine.SwitchState(UIStateType.InGame);
             _playerSpawner.Spawn();
             _asteroidsSpawner.Spawn();

@@ -1,6 +1,7 @@
 ﻿using _Assets.Scripts.Ecs.Events;
 using _Assets.Scripts.Ecs.Health;
 using _Assets.Scripts.Ecs.Player;
+using _Assets.Scripts.Services;
 using _Assets.Scripts.Services.StateMachine;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
@@ -15,10 +16,10 @@ namespace _Assets.Scripts.Ecs.Damage
     [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(OnDamageGameOverSystem))]
     public class OnDamageGameOverSystem : UpdateSystem
     {
-        private GameStateMachine _gameStateMachine;
+        private PlayerLivesService _playerLivesService;
         private Event<DamagedEvent> _damagedEvent;
 
-        public void Inject(GameStateMachine gameStateMachine) => _gameStateMachine = gameStateMachine;
+        public void Inject(PlayerLivesService playerLivesService) => _playerLivesService = playerLivesService;
 
         public override void OnAwake() => _damagedEvent = World.GetEvent<DamagedEvent>();
 
@@ -43,7 +44,7 @@ namespace _Assets.Scripts.Ecs.Damage
                         {
                             if (healthComponent.health <= 0)
                             {
-                                _gameStateMachine.SwitchState(GameStateType.GameOver);
+                                _playerLivesService.DecreaseLives(1);
                             }
                         }
                     }
