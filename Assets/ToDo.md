@@ -2,6 +2,8 @@ Asteroids ECS thing
 
 //Rescale UI
 //Sound effects
+
+//Optional
 //3D models
 //Explosions?
 

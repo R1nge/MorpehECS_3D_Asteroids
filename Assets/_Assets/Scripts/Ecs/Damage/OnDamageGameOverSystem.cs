@@ -2,7 +2,6 @@
 using _Assets.Scripts.Ecs.Health;
 using _Assets.Scripts.Ecs.Player;
 using _Assets.Scripts.Services;
-using _Assets.Scripts.Services.StateMachine;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Unity.IL2CPP.CompilerServices;

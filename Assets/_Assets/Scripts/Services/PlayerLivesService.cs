@@ -1,9 +1,13 @@
 ﻿using System;
+using _Assets.Scripts.Services.Configs;
 
 namespace _Assets.Scripts.Services
 {
     public class PlayerLivesService
     {
+        private readonly ConfigProvider _configProvider;
+        private PlayerLivesService(ConfigProvider configProvider) => _configProvider = configProvider;
+
         private int _lives;
         public int Lives
         {
@@ -19,10 +23,6 @@ namespace _Assets.Scripts.Services
             OnLivesChanged?.Invoke(_lives);
         }
 
-        public void Reset()
-        {
-            //TODO: max lives config
-            Lives = 3;
-        }
+        public void Reset() => Lives = _configProvider.GameConfig.maxLives;
     }
 }

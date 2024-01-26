@@ -64,3 +64,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiConfig: {fileID: 11400000, guid: 6118160538a78164f95145dcdf9de3fc, type: 2}
   entitiesConfig: {fileID: 11400000, guid: 87122eb13cbf53b47aa7f654eab8edce, type: 2}
+  gameConfig: {fileID: 11400000, guid: 7677431af8b932b47a93101b6e05b5dc, type: 2}

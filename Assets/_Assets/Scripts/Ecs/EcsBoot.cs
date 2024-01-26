@@ -2,9 +2,7 @@
 using _Assets.Scripts.Ecs.Score;
 using _Assets.Scripts.Ecs.Shooting;
 using _Assets.Scripts.Services;
-using _Assets.Scripts.Services.Factories;
 using _Assets.Scripts.Services.Spawners;
-using _Assets.Scripts.Services.StateMachine;
 using Scellecs.Morpeh;
 using UnityEngine;
 using VContainer;
