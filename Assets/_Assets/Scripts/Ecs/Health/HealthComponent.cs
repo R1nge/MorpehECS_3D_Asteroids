@@ -15,10 +15,6 @@ namespace _Assets.Scripts.Ecs.Health
         public int health;
         public GameObject gameObject;
 
-        public void Dispose()
-        {
-            Debug.Log("Dispose");
-            Object.Destroy(gameObject);
-        }
+        public void Dispose() => Object.Destroy(gameObject);
     }
 }
