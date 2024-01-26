@@ -3,7 +3,7 @@
 namespace _Assets.Scripts.Ecs.Asteroid
 {
     [Serializable]
-    public enum AsteroidSize : byte
+    public enum AsteroidSize
     {
         Large = 2,
         Medium = 1,

@@ -17,6 +17,7 @@ namespace _Assets.Scripts.Ecs.Asteroid
 
         private void OnCollisionEnter(Collision other)
         {
+            //On collision with each other two callbacks???
             if (other.gameObject.TryGetComponent(out HealthProvider healthProvider))
             {
                 //Sends a request to be consumed by only one other system

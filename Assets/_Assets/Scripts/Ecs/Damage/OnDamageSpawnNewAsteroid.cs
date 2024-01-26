@@ -42,10 +42,7 @@ namespace _Assets.Scripts.Ecs.Damage
                         if (entity.Has<AsteroidComponent>())
                         {
                             var asteroid = entity.GetComponent<AsteroidComponent>();
-                            Debug.Log($"Asteroid size: {asteroid.asteroidSize - 1}");
-                            
-                            //If 0, then 0 - 1 = 255 because of overflow
-                            if ((byte)asteroid.asteroidSize - 1 > 0 && (byte)asteroid.asteroidSize - 1 < 255)
+                            if (asteroid.asteroidSize - 1 >= 0)
                             {
                                 healthComponent.Dispose();
                                 _asteroidsSpawner.SpawnWithSize(asteroid.asteroidSize - 1, asteroid.transform.position);
