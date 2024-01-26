@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace _Assets.Scripts.Ecs
 {
-    public class Bullet : MonoProvider<MovementComponent>
+    public class PlayerBullet : MonoProvider<MovementComponent>
     {
         [SerializeField] private int damage;
         private Request<DamageRequest> _damageRequest;
@@ -26,12 +26,13 @@ namespace _Assets.Scripts.Ecs
                 _damageRequest.Publish(new DamageRequest
                 {
                     //TODO: Possible null?
-                    targetEntityId = healthProvider.Entity.ID,
-                    damage = damage
+                    TargetEntityId = healthProvider.Entity.ID,
+                    Damage = damage,
+                    IsPlayer = true
                 });
-
-                Destroy(gameObject);
             }
+            
+            Destroy(gameObject);
         }
     }
 }

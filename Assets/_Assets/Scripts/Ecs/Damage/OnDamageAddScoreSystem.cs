@@ -28,7 +28,10 @@ namespace _Assets.Scripts.Ecs.Damage
         {
             foreach (var evt in _damagedEvent.publishedChanges)
             {
-                AddScore(evt.targetEntityId);
+                if (evt.IsPlayer)
+                {
+                    AddScore(evt.TargetEntityId);    
+                }
             }
         }
 

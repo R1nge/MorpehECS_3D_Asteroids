@@ -26,7 +26,7 @@ namespace _Assets.Scripts.Ecs.Damage
         {
             foreach (var evt in _damagedEvent.publishedChanges)
             {
-                SpawnNewAsteroid(evt.targetEntityId);
+                SpawnNewAsteroid(evt.TargetEntityId);
             }
         }
 

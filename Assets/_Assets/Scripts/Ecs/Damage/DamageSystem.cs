@@ -28,12 +28,13 @@ namespace _Assets.Scripts.Ecs.Damage
             //Consumes a request sent by some one else
             foreach (var request in _damageRequest.Consume())
             {
-                ApplyDamage(request.targetEntityId, request.damage);
+                ApplyDamage(request.TargetEntityId, request.Damage);
                 
                 //Sends an event
                 _damagedEvent.NextFrame(new DamagedEvent
                 {
-                    targetEntityId = request.targetEntityId
+                    TargetEntityId = request.TargetEntityId,
+                    IsPlayer = request.IsPlayer
                 });
             }
         }

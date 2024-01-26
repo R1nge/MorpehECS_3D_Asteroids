@@ -25,7 +25,7 @@ namespace _Assets.Scripts.Ecs.Damage
         public override void OnUpdate(float deltaTime)
         {
             foreach (var evt in _damagedEvent.publishedChanges) {
-                GameOver(evt.targetEntityId);
+                GameOver(evt.TargetEntityId);
             }
         }
         

@@ -4,7 +4,7 @@ namespace _Assets.Scripts.Ecs.Events
 {
     public struct DamagedEvent : IEventData
     {
-        public EntityId targetEntityId;
-        public int damage;
+        public EntityId TargetEntityId;
+        public bool IsPlayer;
     }
 }
