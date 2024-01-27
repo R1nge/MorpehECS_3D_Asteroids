@@ -4,6 +4,7 @@ using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
+using VContainer;
 
 namespace _Assets.Scripts.Ecs.Score
 {
@@ -13,10 +14,8 @@ namespace _Assets.Scripts.Ecs.Score
     [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(ScoreSystem))]
     public class ScoreSystem : UpdateSystem
     {
-        private ScoreService _scoreService;
+        [Inject] private ScoreService _scoreService;
         private Request<AddPointsRequest> _addPointsRequest;
-
-        public void Inject(ScoreService scoreService) => _scoreService = scoreService;
 
         public override void OnAwake() => _addPointsRequest = World.GetRequest<AddPointsRequest>();
 
@@ -24,7 +23,7 @@ namespace _Assets.Scripts.Ecs.Score
         {
             foreach (var request in _addPointsRequest.Consume())
             {
-                AddPoints(request.points);
+                AddPoints(request.Points);
             }
         }
 

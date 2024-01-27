@@ -46,7 +46,7 @@ namespace _Assets.Scripts.Ecs.Damage
                     {
                         _addPointsRequest.Publish(new AddPointsRequest
                         {
-                            points = entity.GetComponent<AsteroidComponent>().points
+                            Points = entity.GetComponent<AsteroidComponent>().points
                         });
                     }
                 }

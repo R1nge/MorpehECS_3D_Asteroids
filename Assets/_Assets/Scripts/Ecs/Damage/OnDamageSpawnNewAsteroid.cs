@@ -6,6 +6,7 @@ using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
+using VContainer;
 
 namespace _Assets.Scripts.Ecs.Damage
 {
@@ -15,10 +16,8 @@ namespace _Assets.Scripts.Ecs.Damage
     [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(OnDamageSpawnNewAsteroid))]
     public class OnDamageSpawnNewAsteroid : UpdateSystem
     {
-        private AsteroidsSpawner _asteroidsSpawner;
+        [Inject] private AsteroidsSpawner _asteroidsSpawner;
         private Event<DamagedEvent> _damagedEvent;
-
-        public void Inject(AsteroidsSpawner asteroidsSpawner) => _asteroidsSpawner = asteroidsSpawner;
 
         public override void OnAwake() => _damagedEvent = World.GetEvent<DamagedEvent>();
 

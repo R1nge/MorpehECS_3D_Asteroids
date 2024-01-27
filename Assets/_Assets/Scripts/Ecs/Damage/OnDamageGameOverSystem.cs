@@ -6,6 +6,7 @@ using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
+using VContainer;
 
 namespace _Assets.Scripts.Ecs.Damage
 {
@@ -15,10 +16,8 @@ namespace _Assets.Scripts.Ecs.Damage
     [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(OnDamageGameOverSystem))]
     public class OnDamageGameOverSystem : UpdateSystem
     {
-        private PlayerLivesService _playerLivesService;
+        [Inject] private PlayerLivesService _playerLivesService;
         private Event<DamagedEvent> _damagedEvent;
-
-        public void Inject(PlayerLivesService playerLivesService) => _playerLivesService = playerLivesService;
 
         public override void OnAwake() => _damagedEvent = World.GetEvent<DamagedEvent>();
 

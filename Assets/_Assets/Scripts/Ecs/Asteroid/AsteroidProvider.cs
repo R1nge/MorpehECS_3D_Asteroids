@@ -10,10 +10,7 @@ namespace _Assets.Scripts.Ecs.Asteroid
     {
         private Request<DamageRequest> _damageRequest;
 
-        protected override void Initialize()
-        {
-            _damageRequest = World.Default.GetRequest<DamageRequest>();
-        }
+        protected override void Initialize() => _damageRequest = World.Default.GetRequest<DamageRequest>();
 
         private void OnCollisionEnter(Collision other)
         {

@@ -12,7 +12,7 @@ namespace _Assets.Scripts.Services
         public int Lives
         {
             get => _lives;
-            set => _lives = value;
+            private set => _lives = value;
         }
 
         public event Action<int> OnLivesChanged; 

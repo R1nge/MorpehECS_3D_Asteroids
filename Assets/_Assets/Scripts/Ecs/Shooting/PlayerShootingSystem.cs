@@ -4,6 +4,7 @@ using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
+using VContainer;
 
 namespace _Assets.Scripts.Ecs.Shooting
 {
@@ -13,10 +14,8 @@ namespace _Assets.Scripts.Ecs.Shooting
     [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(PlayerShootingSystem))]
     public class PlayerShootingSystem : UpdateSystem
     {
-        private BulletSpawner _bulletSpawner;
+        [Inject] private BulletSpawner _bulletSpawner;
         private Filter _filter;
-        
-        public void Inject(BulletSpawner bulletSpawner) => _bulletSpawner = bulletSpawner;
 
         public override void OnAwake()
         {

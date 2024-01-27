@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 1069214251}
   - component: {fileID: 1069214252}
   m_Layer: 0
-  m_Name: '[Installer]'
+  m_Name: '[Injectable Installer]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -379,10 +379,6 @@ MonoBehaviour:
     system: {fileID: 11400000, guid: c816e5c9c0b10fc47b62991bc41c4375, type: 2}
   lateUpdateSystems: []
   cleanupSystems: []
-  playerShootingSystem: {fileID: 11400000, guid: 15aa58d9e395f0f42b2c7d810701a0d5, type: 2}
-  scoreSystem: {fileID: 11400000, guid: ccaee15e32110764b9c04a7d60738fed, type: 2}
-  onDamageSpawnNewAsteroid: {fileID: 11400000, guid: a5668735ec98d144d9c9163d64c52d6a, type: 2}
-  onDamageGameOverSystem: {fileID: 11400000, guid: 7320b6980bf70534fb815ad415c1b4e5, type: 2}
 --- !u!1 &1162377814
 GameObject:
   m_ObjectHideFlags: 0
