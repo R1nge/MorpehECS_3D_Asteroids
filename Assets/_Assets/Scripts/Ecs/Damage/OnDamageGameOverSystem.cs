@@ -33,17 +33,14 @@ namespace _Assets.Scripts.Ecs.Damage
         {
             if (World.TryGetEntity(target, out var entity))
             {
-                if (!entity.IsNullOrDisposed())
+                if (entity.Has<PlayerComponent>())
                 {
                     if (entity.Has<HealthComponent>())
                     {
                         var healthComponent = entity.GetComponent<HealthComponent>();
-                        if (entity.Has<PlayerComponent>())
+                        if (healthComponent.health <= 0)
                         {
-                            if (healthComponent.health <= 0)
-                            {
-                                _playerLivesService.DecreaseLives(1);
-                            }
+                            _playerLivesService.DecreaseLives(1);
                         }
                     }
                 }

@@ -14,17 +14,18 @@ namespace _Assets.Scripts.Ecs.Asteroid
 
         private void OnCollisionEnter(Collision other)
         {
-            //On collision with each other two callbacks???
             if (other.gameObject.TryGetComponent(out HealthProvider healthProvider))
             {
                 //Sends a request to be consumed by only one other system
-                _damageRequest.Publish(new DamageRequest
+                if (healthProvider.Entity != null)
                 {
-                    //TODO: Possible null?
-                    TargetEntityId = healthProvider.Entity.ID,
-                    Damage = 1,
-                    IsPlayer = false
-                });
+                    _damageRequest.Publish(new DamageRequest
+                    {
+                        TargetEntityId = healthProvider.Entity.ID,
+                        Damage = 1,
+                        IsPlayer = false
+                    });
+                }
             }
         }
     }

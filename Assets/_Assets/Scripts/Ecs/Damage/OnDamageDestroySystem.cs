@@ -15,9 +15,7 @@ namespace _Assets.Scripts.Ecs.Damage
     {
         private Event<DamagedEvent> _damagedEvent;
 
-        public override void OnAwake() {
-            _damagedEvent = World.GetEvent<DamagedEvent>();
-        }
+        public override void OnAwake() => _damagedEvent = World.GetEvent<DamagedEvent>();
 
         public override void OnUpdate(float deltaTime) {
             foreach (var evt in _damagedEvent.publishedChanges) {

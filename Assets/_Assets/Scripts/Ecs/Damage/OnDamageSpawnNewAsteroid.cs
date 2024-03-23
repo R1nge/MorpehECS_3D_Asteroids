@@ -33,12 +33,12 @@ namespace _Assets.Scripts.Ecs.Damage
         {
             if (World.TryGetEntity(target, out var entity))
             {
-                if (entity.Has<HealthComponent>())
+                if (entity.Has<AsteroidComponent>())
                 {
-                    var healthComponent = entity.GetComponent<HealthComponent>();
-                    if (healthComponent.health <= 0)
+                    if (entity.Has<HealthComponent>())
                     {
-                        if (entity.Has<AsteroidComponent>())
+                        var healthComponent = entity.GetComponent<HealthComponent>();
+                        if (healthComponent.health <= 0)
                         {
                             var asteroid = entity.GetComponent<AsteroidComponent>();
                             if (asteroid.asteroidSize - 1 >= 0)

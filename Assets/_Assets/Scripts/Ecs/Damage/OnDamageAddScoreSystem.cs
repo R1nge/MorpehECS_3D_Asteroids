@@ -30,7 +30,7 @@ namespace _Assets.Scripts.Ecs.Damage
             {
                 if (evt.IsPlayer)
                 {
-                    AddScore(evt.TargetEntityId);    
+                    AddScore(evt.TargetEntityId);
                 }
             }
         }
@@ -39,10 +39,10 @@ namespace _Assets.Scripts.Ecs.Damage
         {
             if (World.TryGetEntity(target, out var entity))
             {
-                var healthComponent = entity.GetComponent<HealthComponent>();
-                if (healthComponent.health <= 0)
+                if (entity.Has<AsteroidComponent>())
                 {
-                    if (entity.Has<AsteroidComponent>())
+                    var healthComponent = entity.GetComponent<HealthComponent>();
+                    if (healthComponent.health <= 0)
                     {
                         _addPointsRequest.Publish(new AddPointsRequest
                         {
